@@ -1,0 +1,21 @@
+digraph Overview {
+	rankdir = LR
+	ranksep = 0.25
+	node [penwidth = 0.5, shape = box, width = 0.8,
+	fixedsize = true, fontsize = 10]
+	edge [arrowsize = 0.5, penwidth = 0.5]
+	"MIMIC II", 
+	"Cardio\nVariables", "Chemistries\nVariables", "Hematology\nVariables", "Ventilation\nVariables", "Misc\nVariables", "UrineIO\nVariables",
+	"Cardio\nMinimodel", "Chemistries\nMinimodel", "Hematology\nMinimodel", "Ventilation\nMinimodel", "Misc\nMinimodel", "UrineIO\nMinimodel" [style = filled, fillcolor = green2]
+
+	"Cardio\nRisk Score", "Chemistries\nRisk Score", "Hematology\nRisk Score", "Ventilation\nRisk Score", "Misc\nRisk Score", "UrineIO\nRisk Score",
+	"Super\nModel", "Overall\nRisk Score" [style = filled, fillcolor = green4]
+
+	"MIMIC II" -> "Cardio\nVariables" -> "Cardio\nMinimodel" -> "Cardio\nRisk Score" -> "Super\nModel";
+	"MIMIC II" -> "Chemistries\nVariables" -> "Chemistries\nMinimodel" -> "Chemistries\nRisk Score" -> "Super\nModel";
+	"MIMIC II" -> "Hematology\nVariables" -> "Hematology\nMinimodel" -> "Hematology\nRisk Score" -> "Super\nModel";
+	"MIMIC II" -> "Ventilation\nVariables" -> "Ventilation\nMinimodel" -> "Ventilation\nRisk Score" -> "Super\nModel";
+	"MIMIC II" -> "Misc\nVariables" -> "Misc\nMinimodel" -> "Misc\nRisk Score" -> "Super\nModel";
+	"MIMIC II" -> "UrineIO\nVariables" -> "UrineIO\nMinimodel" -> "UrineIO\nRisk Score" -> "Super\nModel";
+	"Super\nModel" -> "Overall\nRisk Score"
+}

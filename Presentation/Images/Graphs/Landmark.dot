@@ -1,0 +1,17 @@
+digraph Landmark {
+	rankdir = LR
+	ranksep = 0.25
+	node [penwidth = 0.5, shape = box, width = 1,
+	fixedsize = true, fontsize = 10]
+	edge [arrowsize = 0.5, penwidth = 0.5]
+
+	"ICU Entry" [style = filled, fillcolor = skyblue];
+	"8 hour\n19082 Patients\n10.76% Mortality", "152 Died" [style = filled, fillcolor = skyblue1];
+	"1 day\n18930 Patients\n10.05% Mortality", "206 Died" [style = filled, fillcolor = skyblue2];
+	"2 days\n18724 Patients\n9.06% Mortality" [style = filled, fillcolor = skyblue3];
+
+
+	"ICU Entry" -> "8 hour\n19082 Patients\n10.76% Mortality" -> "1 day\n18930 Patients\n10.05% Mortality" -> "2 days\n18724 Patients\n9.06% Mortality";
+	"8 hour\n19082 Patients\n10.76% Mortality" -> "152 Died";
+	"1 day\n18930 Patients\n10.05% Mortality" -> "206 Died";
+}
